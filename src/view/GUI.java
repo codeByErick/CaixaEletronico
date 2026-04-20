@@ -61,6 +61,11 @@ public class GUI extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Valor total disponível");
 		
 		JButton btnNewButton_1 = new JButton("Reposição de Cédulas");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		JButton btnNewButton_1_2 = new JButton("Cota mínima");
 		

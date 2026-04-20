@@ -3,14 +3,24 @@ package model;
 import view.GUI;
 
 public class CaixaEletronico implements ICaixaEletronico {
-	private int[][] cedulas = { { 100, 0 }, { 50, 0 }, { 20, 0 }, { 10, 0 }, { 5, 0 }, { 2, 0 }
-
+	private int[][] cedulas = {
+			{ 100, 0 },
+			{ 50, 0 },
+			{ 20, 0 },
+			{ 10, 0 },
+			{ 5, 0 },
+			{ 2, 0 }
 	};
+	
+	
 
+	//logica de fazer o relatorio de cedulas
+	//Percorre a matriz para retornar uma string formatada das cédulas e quantidades disponíveis
 	public String pegaRelatorioCedulas() {
-
 		String resposta = "";
-//logica de fazer o relatorio de cedulas
+		for (int i = 0; i < cedulas.length; i++) {
+			resposta += "Nota: " + cedulas[i][0] + " | QTD: " + cedulas[i][1] + "\n";
+		}
 		return resposta;
 	}
 
@@ -29,20 +39,21 @@ public class CaixaEletronico implements ICaixaEletronico {
 	 * equivalente à dada pelo usuário, caso encontre, a quantidade é incrementada
 	 */
 	public String reposicaoCedulas(Integer cedula, Integer quantidade) {
+		String resposta;
 		if (quantidade <= 0) {
-			String resposta = "Quantidade inválida!";
+			resposta = "Quantidade inválida!";
 			return resposta;
 		}
 		for (int i = 0; i < cedulas.length; i++) {
 				if (cedulas [i][0] == cedula) {
 					cedulas[i][1] += quantidade;
-					String resposta = "Reposição realizada!";
+					resposta = "Reposição realizada!";
 					return resposta;
 				}
 		
 		}
 		
-		String resposta = "Cédula inválida!";
+		resposta = "Cédula inválida!";
 		return resposta;
 	}
 
@@ -61,6 +72,11 @@ public class CaixaEletronico implements ICaixaEletronico {
 	}
 
 	public static void main(String arg[]) {
+		CaixaEletronico caixa = new CaixaEletronico();
+		caixa.reposicaoCedulas(100, 100);
+		
+		System.out.println(caixa.pegaRelatorioCedulas());
+		
 		GUI janela = new GUI();
 		janela.setVisible(true);
 	}
