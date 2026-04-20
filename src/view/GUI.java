@@ -1,5 +1,8 @@
 package view;
 
+import model.ICaixaEletronico;
+import model.CaixaEletronico;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,9 +18,13 @@ import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Cursor;
+import javax.swing.JOptionPane;
 
 public class GUI extends JFrame {
-
+	
+	private ICaixaEletronico caixa;
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
@@ -28,8 +35,10 @@ public class GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI frame = new GUI();
+					ICaixaEletronico caixa = new CaixaEletronico();
+					GUI frame = new GUI(caixa);
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,7 +49,8 @@ public class GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI() {
+	public GUI(ICaixaEletronico caixa) {
+		this.caixa = caixa;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 403, 611);
 		contentPane = new JPanel();
@@ -48,6 +58,7 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("Efetuar Saque");
+		btnNewButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -57,6 +68,12 @@ public class GUI extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		JButton btnRelatrioDeCdulas = new JButton("Relatório de Cédulas");
+		btnRelatrioDeCdulas.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnRelatrioDeCdulas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(GUI.this, caixa.pegaRelatorioCedulas());
+			}
+		});
 		
 		JButton btnNewButton_1_1 = new JButton("Valor total disponível");
 		
@@ -70,6 +87,7 @@ public class GUI extends JFrame {
 		JButton btnNewButton_1_2 = new JButton("Cota mínima");
 		
 		JButton btnNewButton_1_2_1 = new JButton("SAIR");
+		btnNewButton_1_2_1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnNewButton_1_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

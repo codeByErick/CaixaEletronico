@@ -85,7 +85,7 @@ public class CaixaEletronico implements ICaixaEletronico {
 		System.out.println(caixa.pegaRelatorioCedulas());
 		System.out.println(caixa.pegaValorTotalDisponivel());
 		
-		GUI janela = new GUI();
+		GUI janela = new GUI(caixa);
 		janela.setVisible(true);
 	}
 }
