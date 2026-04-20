@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
+import java.awt.GridLayout;
 
 public class GUI extends JFrame {
 
@@ -55,9 +56,6 @@ public class GUI extends JFrame {
 		JLabel lblNewLabel = new JLabel("Módulo do Cliente");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		JLabel lblMduloDoAdministrador = new JLabel("Módulo do Administrador");
-		lblMduloDoAdministrador.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		
 		JButton btnRelatrioDeCdulas = new JButton("Relatório de Cédulas");
 		
 		JButton btnNewButton_1_1 = new JButton("Valor total disponível");
@@ -73,50 +71,22 @@ public class GUI extends JFrame {
 			}
 		});
 		btnNewButton_1_2_1.setForeground(new Color(255, 0, 0));
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(99)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(62)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(10)
-									.addComponent(lblMduloDoAdministrador, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE))
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnRelatrioDeCdulas, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_1_1, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_1_2, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_1_2_1, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(494, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblMduloDoAdministrador, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnRelatrioDeCdulas, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_1_1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_1_2, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1_2_1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addGap(36))
-		);
-		contentPane.setLayout(gl_contentPane);
+		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		contentPane.add(lblNewLabel);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblMduloDoAdministrador = new JLabel("Módulo do Administrador");
+		lblMduloDoAdministrador.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblMduloDoAdministrador);
+		contentPane.add(btnRelatrioDeCdulas);
+		contentPane.add(btnNewButton_1_1);
+		contentPane.add(btnNewButton_1);
+		contentPane.add(btnNewButton_1_2);
+		
+		JLabel lblMduloDeAmbos = new JLabel("Módulo de ambos");
+		lblMduloDeAmbos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(lblMduloDeAmbos);
+		contentPane.add(btnNewButton_1_2_1);
 
 	}
 }
