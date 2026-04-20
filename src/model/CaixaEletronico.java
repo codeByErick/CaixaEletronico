@@ -23,10 +23,17 @@ public class CaixaEletronico implements ICaixaEletronico {
 		}
 		return resposta;
 	}
+	
+	
 
+	//logica de pega o valor total disponivel no caixa eletronico
 	public String pegaValorTotalDisponivel() {
 		String resposta = "";
-//logica de pega o valor total disponivel no caixa eletronio
+		int total = 0;
+		for (int i = 0; i < cedulas.length; i++) {
+			total += cedulas[i][0]*cedulas[i][1];
+		}
+		resposta += total;
 		return resposta;
 	}
 
@@ -76,6 +83,7 @@ public class CaixaEletronico implements ICaixaEletronico {
 		caixa.reposicaoCedulas(100, 100);
 		
 		System.out.println(caixa.pegaRelatorioCedulas());
+		System.out.println(caixa.pegaValorTotalDisponivel());
 		
 		GUI janela = new GUI();
 		janela.setVisible(true);
